@@ -1,29 +1,50 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 import Layout from '../../components/Layout'
 import BlogRoll from '../../components/BlogRoll'
 
-export default class BlogIndexPage extends React.Component {
-  render() {
+export default () => {
+    const [desiredTags, setDesiredTags] = useState(['tagA','tagB','tagC','tagD','tagE','tagF','tagG','tagH'])
+    const handleToggle = (event, target) => {
+      console.log(target)
+    }
     return (
       <Layout>
         <div
           className="full-width-image-container margin-top-0"
           style={{
-            backgroundImage: `url('/img/blog-index.jpg')`,
+            backgroundImage: `url('/img/home-jumbotron.jpg')`,
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'flex-end'
           }}
         >
           <h1
-            className="has-text-weight-bold is-size-1"
+            className="has-text-weight-bold has-text-centered is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
             style={{
-              boxShadow: '0.5rem 0 0 #f40, -0.5rem 0 0 #f40',
-              backgroundColor: '#f40',
+              textShadow:'5px 5px 10px rgba(0,0,0,0.5)',
               color: 'white',
-              padding: '1rem',
+              lineHeight: '1',
+              padding: '0.25em',
+              position: 'relative',
+              top: '-130px'
             }}
           >
-            Latest Stories
+            Blog
           </h1>
+          <div style ={{
+            display:'flex', 
+            justifyContent: 'center',
+            flexWrap: 'wrap',
+            width: '90%',
+            marginBottom: '10px'
+          }}>
+            {desiredTags.map(tag => (
+              <div className='tagPill' key={'tag_'+tag} id={'tag_'+tag} onClick={handleToggle}>
+                {tag}
+              </div>
+            ))}
+          </div>
         </div>
         <section className="section">
           <div className="container">
@@ -34,5 +55,4 @@ export default class BlogIndexPage extends React.Component {
         </section>
       </Layout>
     )
-  }
 }
