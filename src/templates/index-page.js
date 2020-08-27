@@ -71,7 +71,7 @@ export const IndexPageTemplate = ({
             <div className="column is-10 is-offset-1">
               <div className="content">
                 <div className="column is-12">
-                  <BlogRoll limit={2}/>
+                  <BlogRoll limit={2} desiredTags={['brewing']}/>
                   <div className="column is-12 has-text-centered">
                     <Link className="btn" to="/blog">
                       Read more

@@ -4,10 +4,19 @@ import Layout from '../../components/Layout'
 import BlogRoll from '../../components/BlogRoll'
 
 export default () => {
-    const [desiredTags, setDesiredTags] = useState(['tagA','tagB','tagC','tagD','tagE','tagF','tagG','tagH'])
-    const handleToggle = (event, target) => {
-      console.log(target)
+    const tags = ['brewing','chemex','jamaica','green beans','flavor','tasting']
+    const [desiredTags, setDesiredTags] = useState([])
+
+    const handleToggle = (event, target) =>{
+      const value = event.target.innerHTML
+
+      if(desiredTags.includes(value)){
+        setDesiredTags(desiredTags.filter(el => el !== value))
+      } else {
+        setDesiredTags([...desiredTags,value])
+      }
     }
+
     return (
       <Layout>
         <div
@@ -39,8 +48,13 @@ export default () => {
             width: '90%',
             marginBottom: '10px'
           }}>
-            {desiredTags.map(tag => (
-              <div className='tagPill' key={'tag_'+tag} id={'tag_'+tag} onClick={handleToggle}>
+            {tags.map(tag => (
+              <div 
+                className={`tagPill ${desiredTags.includes(tag) ? 'tagPillSelected' : ''}`}
+                key={'tag_'+tag} 
+                id={'tag_'+tag} 
+                onClick={handleToggle}
+              >
                 {tag}
               </div>
             ))}
@@ -49,7 +63,7 @@ export default () => {
         <section className="section">
           <div className="container">
             <div className="content">
-              <BlogRoll />
+              <BlogRoll tags={desiredTags} />
             </div>
           </div>
         </section>

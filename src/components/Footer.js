@@ -10,16 +10,18 @@ import vimeo from '../img/social/vimeo.svg'
 const Footer = class extends React.Component {
   render() {
     return (
-      <footer className="footer has-background-black has-text-white-ter">
+      <footer className="footer" style={{'background':'#6FD6D5'}}>
         <div className="content has-text-centered">
-          <img
-            src={logo}
-            alt="Kaldi"
-            style={{ width: '14em', height: '10em' }}
-          />
+          <div style={{
+                  fontWeight: 'bold',
+                  textTransform: 'uppercase',
+                  fontSize: '3rem',
+                  color: '#F9AFAE',
+                  textShadow: '2px 2px 10px white'
+                }}>SOPHIE</div>
         </div>
-        <div className="content has-text-centered has-background-black has-text-white-ter">
-          <div className="container has-background-black has-text-white-ter">
+        <div className="content has-text-centered has-text-black" style={{'backgroundColor':'#6FD6D5'}}>
+          <div className="container has-text-black" style={{'backgroundColor':'#6FD6D5'}}>
             <div style={{ maxWidth: '100vw' }} className="columns">
               <div className="column is-4">
                 <section className="menu">
@@ -40,11 +42,6 @@ const Footer = class extends React.Component {
                       </Link>
                     </li>
                     <li>
-                      <Link className="navbar-item" to="/contact/examples">
-                        Form Examples
-                      </Link>
-                    </li>
-                    <li>
                       <a
                         className="navbar-item"
                         href="/admin/"
@@ -62,7 +59,7 @@ const Footer = class extends React.Component {
                   <ul className="menu-list">
                     <li>
                       <Link className="navbar-item" to="/blog">
-                        Latest Stories
+                        Blog
                       </Link>
                     </li>
                     <li>

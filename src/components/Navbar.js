@@ -1,7 +1,5 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import github from '../img/github-icon.svg'
-import logo from '../img/logo.svg'
 
 const Navbar = class extends React.Component {
   constructor(props) {
@@ -38,6 +36,7 @@ const Navbar = class extends React.Component {
         className="navbar is-transparent"
         role="navigation"
         aria-label="main-navigation"
+        style={{'borderBottom':'1px solid rgba(0,0,0,0.3)'}}
       >
         <div className="container">
           <div className="navbar-brand">

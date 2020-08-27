@@ -216,8 +216,15 @@ $menu-label-color: $white-ter
 
 
 .tagPill
-  width: 75px
+  width: 100px
   background: white
   border-radius: 38px;
   text-align: center;
   margin: 10px 0 0 10px
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;
+
+.tagPillSelected
+  background: #6FD6D5
+  color: white
